@@ -43,10 +43,11 @@ export function TimeSlot({ time, date, task, status }: TimeSlotProps) {
   function handleDelete() {
     if (task) {
       dispatch({ type: "DELETE_TASK", payload: task.id });
+      setMode("view");
     }
   }
 
-  const isActive = status === "active" && task;
+  const isActive = status === "active" && task != null;
 
   return (
     <div
