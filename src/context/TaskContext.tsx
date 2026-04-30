@@ -7,6 +7,7 @@ import {
 } from "react";
 import type { Task } from "../types";
 import { createMockTasks } from "../data/mockTasks";
+import { getToday } from "../utils/dateUtils";
 
 type TaskAction =
   | { type: "ADD_TASK"; payload: Task }
@@ -35,11 +36,6 @@ export function taskReducer(state: Task[], action: TaskAction): Task[] {
     default:
       return state;
   }
-}
-
-function getToday(): string {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 const TasksContext = createContext<Task[]>([]);
