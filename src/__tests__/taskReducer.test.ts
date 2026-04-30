@@ -40,7 +40,7 @@ describe("taskReducer", () => {
 
   it("returns state unchanged for unknown action", () => {
     const state: Task[] = [task1];
-    const result = taskReducer(state, { type: "UNKNOWN" as any, payload: null });
+    const result = taskReducer(state, { type: "UNKNOWN", payload: null } as any);
     expect(result).toBe(state);
   });
 });
