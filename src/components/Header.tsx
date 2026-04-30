@@ -41,6 +41,7 @@ export function Header({ date, now, onPrevDay, onNextDay, onToday }: HeaderProps
       <div className={css({ display: "flex", alignItems: "center", gap: "3" })}>
         <button
           onClick={onPrevDay}
+          aria-label="Previous day"
           className={css({
             bg: "#333",
             border: "none",
@@ -59,6 +60,7 @@ export function Header({ date, now, onPrevDay, onNextDay, onToday }: HeaderProps
         </h1>
         <button
           onClick={onNextDay}
+          aria-label="Next day"
           className={css({
             bg: "#333",
             border: "none",
