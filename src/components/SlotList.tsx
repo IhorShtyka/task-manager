@@ -17,6 +17,7 @@ export function SlotList({ date, now }: SlotListProps) {
       {TIME_SLOTS.map((time) => {
         const task = dayTasks.find((t) => t.timeSlot === time);
         const status = getTaskStatus(time, date, now);
+
         return (
           <TimeSlot
             key={time}

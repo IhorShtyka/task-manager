@@ -1,7 +1,10 @@
 import { css } from "../../styled-system/css";
 import type { TaskStatus } from "../types";
 
-const STATUS_STYLES: Record<TaskStatus, { border: string; bg: string; badge: string }> = {
+const STATUS_STYLES: Record<
+  TaskStatus,
+  { border: string; bg: string; badge: string }
+> = {
   pending: { border: "#facc15", bg: "#3a3a2a", badge: "#facc15" },
   active: { border: "#4ade80", bg: "#2a4a3a", badge: "#4ade80" },
   done: { border: "#60a5fa", bg: "#2a2a4a", badge: "#60a5fa" },
@@ -37,7 +40,9 @@ export function TaskCard({ title, status, onEdit, onDelete }: TaskCardProps) {
       <div className={css({ display: "flex", alignItems: "center", gap: "2" })}>
         <strong
           className={css({ color: "#e0e0e0" })}
-          style={{ textDecoration: status === "done" ? "line-through" : "none" }}
+          style={{
+            textDecoration: status === "done" ? "line-through" : "none",
+          }}
         >
           {title}
         </strong>
@@ -54,10 +59,12 @@ export function TaskCard({ title, status, onEdit, onDelete }: TaskCardProps) {
           {status}
         </span>
         {status === "active" && (
-          <span className={css({ color: "#4ade80", fontSize: "xs" })}>● now</span>
+          <span className={css({ color: "#4ade80", fontSize: "xs" })}>
+            ● now
+          </span>
         )}
       </div>
-      <div className={css({ display: "flex", gap: "1.5" })}>
+      <div className={css({ display: "flex", gap: "3" })}>
         <button
           onClick={onEdit}
           className={css({
@@ -66,7 +73,8 @@ export function TaskCard({ title, status, onEdit, onDelete }: TaskCardProps) {
             color: "#888",
             cursor: "pointer",
             fontSize: "sm",
-            _hover: { color: "#e0e0e0" },
+            borderRadius: "full",
+            _hover: { opacity: 0.7 },
           })}
           aria-label="Edit task"
         >
@@ -80,7 +88,8 @@ export function TaskCard({ title, status, onEdit, onDelete }: TaskCardProps) {
             color: "#888",
             cursor: "pointer",
             fontSize: "sm",
-            _hover: { color: "#e0e0e0" },
+            borderRadius: "full",
+            _hover: { opacity: 0.7 },
           })}
           aria-label="Delete task"
         >
