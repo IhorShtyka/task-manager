@@ -13,11 +13,18 @@ const STATUS_STYLES: Record<
 interface TaskCardProps {
   title: string;
   status: TaskStatus;
+  statusLabel?: string;
   onEdit: () => void;
   onDelete: () => void;
 }
 
-export function TaskCard({ title, status, onEdit, onDelete }: TaskCardProps) {
+export function TaskCard({
+  title,
+  status,
+  statusLabel,
+  onEdit,
+  onDelete,
+}: TaskCardProps) {
   const styles = STATUS_STYLES[status];
 
   return (
@@ -56,13 +63,8 @@ export function TaskCard({ title, status, onEdit, onDelete }: TaskCardProps) {
           })}
           style={{ backgroundColor: styles.badge }}
         >
-          {status}
+          {statusLabel ?? status}
         </span>
-        {status === "active" && (
-          <span className={css({ color: "#4ade80", fontSize: "xs" })}>
-            ● now
-          </span>
-        )}
       </div>
       <div className={css({ display: "flex", gap: "3" })}>
         <button

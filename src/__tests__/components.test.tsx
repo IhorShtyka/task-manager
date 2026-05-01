@@ -39,11 +39,11 @@ describe("TaskCard", () => {
     expect(title.style.textDecoration).toBe("line-through");
   });
 
-  it("shows '● now' indicator for active tasks", () => {
+  it("shows statusLabel in badge when provided", () => {
     render(
-      <TaskCard title="Active" status="active" onEdit={() => {}} onDelete={() => {}} />
+      <TaskCard title="Active" status="active" statusLabel="in progress" onEdit={() => {}} onDelete={() => {}} />
     );
-    expect(screen.getByText("● now")).toBeInTheDocument();
+    expect(screen.getByText("in progress")).toBeInTheDocument();
   });
 });
 

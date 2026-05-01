@@ -25,6 +25,7 @@ export function SlotList({ date, now }: SlotListProps) {
             date={date}
             task={task}
             status={status}
+            now={now}
           />
         );
       })}
